@@ -5,12 +5,10 @@ import com.zb.meeteat.domain.matching.dto.MatchingRequestDto;
 import com.zb.meeteat.domain.matching.dto.MatchingResponseDto;
 import com.zb.meeteat.domain.matching.service.MatchingService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,13 +18,8 @@ public class MatchingController {
   private final MatchingService matchingService;
 
   @PostMapping
-  public void responseMatching(@RequestBody JoinRequestDto joinRequestDto) {
-    matchingService.responseMatching(joinRequestDto);
-  }
-
-  @GetMapping("/subscribe")
-  public SseEmitter subscribe() {
-    return matchingService.subscribe();
+  public void joinTempTeam(@RequestBody JoinRequestDto joinRequestDto) {
+    matchingService.joinTempTeam(joinRequestDto);
   }
 
   @PostMapping("/request")

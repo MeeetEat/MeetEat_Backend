@@ -14,9 +14,10 @@ import lombok.Setter;
 @Builder
 public class MatchingDto {
 
-  int count;
-  MatchingStatus status;
-  RestaurantDto restaurant;
+  private int count;
+  private MatchingStatus status;
+  private RestaurantDto restaurant;
+  //List<UserDto>
 
   public static Matching toEntity(MatchingDto matchingDto) {
     return Matching.builder().count(matchingDto.getCount()).status(matchingDto.getStatus())
